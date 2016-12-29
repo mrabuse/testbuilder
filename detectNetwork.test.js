@@ -6,9 +6,9 @@
 // You don't actually want to fill *this* value in on line 8, but you'll see
 // other places in this file where you'll replace the FILL_ME_IN with a
 // different value.
-var FILL_ME_IN = 'Fill this value in';
+//var FILL_ME_IN = 'Fill this value in';
 
-describe('Introduction to Mocha Tests - READ ME FIRST', function() {
+//describe('Introduction to Mocha Tests - READ ME FIRST', function() {
   // A Mocha test is just a function!
   // If the function throws an error when run, it fails.
   // If it doesn't throw an error when run, it doesn't fail. 
@@ -17,27 +17,27 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
   // You will not be able to proceed with a failing test. 
 
 
-  it('Doesn\'t throw an error, so it doesn\'t fail', function() {
+ // it('Doesn\'t throw an error, so it doesn\'t fail', function() {
     // This test doesn't really test anything at all! It will pass no matter what.
-    var even = function(num){
-      return num/2 === 0;
-    }
-    return even(10) === true;
-  });
+    //var even = function(num){
+     // return num/2 === 0;
+    //}
+    //return even(10) === true;
+  //});
 
   // In tests, we want to compare the expected behavior to the actual behavior.
   // A test should only fail if the expected behavior doesn't match the actual.
-  it('Throws an error when expected behavior does not match actual behavior', function() {
-    var even = function(num){
-      return num%2 === 0;
-    }
+  //it('Throws an error when expected behavior does not match actual behavior', function() {
+    //var even = function(num){
+      //return num%2 === 0;
+    //}
 
-    if(even(10) !== true) {
-      throw new Error('10 should be even!');
-    }
-  });
+    //if(even(10) !== true) {
+      //throw new Error('10 should be even!');
+    //}
+  //});
 
-})
+//})
 
 describe('Diner\'s Club', function() {
   // Be careful, tests can have bugs too...
@@ -59,22 +59,22 @@ describe('Diner\'s Club', function() {
 
   // It can get annoying to keep typing the if/throw, so here is a
   // helper function to throw an error if the input statement isn't true. 
-var assert = function(isTrue) {
-  if (!isTrue) {
-    throw new Error('Test failed');
-  }
-};
+//var assert = function(isTrue) {
+  //if (!isTrue) {
+    //throw new Error('Test failed');
+  //}
+//};
 
 describe('American Express', function() {
 
-
+  var expect = chai.expect;
 
   it('has a prefix of 34 and a length of 15', function() {
-    assert(detectNetwork('343456789012345') === 'American Express');
+    expect(detectNetwork('343456789012345')).to.equal('American Express');
   });
 
   it('has a prefix of 37 and a length of 15', function() {
-    assert(detectNetwork('373456789012345') === 'American Express');
+    expect(detectNetwork('373456789012345')).to.equal('American Express');
   });
 });
 
@@ -83,18 +83,18 @@ describe('Visa', function() {
   // Chai provides an assert that acts the same as our previous assert.
   // Search the documentation to figure out how to access it. 
   //   http://chaijs.com/
-  var assert = chai.assert;
+  var expect = chai.expect;
 
   it('has a prefix of 4 and a length of 13', function() {
-    assert(detectNetwork('4123456789012') === 'Visa');
+    expect(detectNetwork('4123456789012')).to.equal('Visa');
   });
 
   it('has a prefix of 4 and a length of 16', function() {
-    assert(detectNetwork('4123456789012345') === 'Visa');
+    expect(detectNetwork('4123456789012345')).to.equal('Visa');
   });
 
   it('has a prefix of 4 and a length of 19', function() {
-    assert(detectNetwork('4123456789012345678') === 'Visa');
+    expect(detectNetwork('4123456789012345678')).to.equal('Visa');
   });
 });
 
@@ -126,8 +126,6 @@ describe('MasterCard', function() {
   // and should, but that's just for learning), so once you've gotten 
   // these tests to pass using should syntax, refactor your tests to 
   // use either expect or should, but not both. 
-  var should = chai.should();
-  
   it('has a prefix of 54 and a length of 16', function() {
     expect(detectNetwork('5412345678901234')).to.equal('MasterCard');
   });
