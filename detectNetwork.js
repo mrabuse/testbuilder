@@ -15,26 +15,19 @@ var detectNetwork = function(cardNumber) {
   // Once you've read this, go ahead and try to implement this function, then return to the console.
 
   if (cardNumber.length === 14 && (cardNumber.substring(0,2) === "38" || cardNumber.substring(0,2) === "39")) {
-  	return "Diner\'s Club";
+  		return "Diner\'s Club";
   } else if (cardNumber.length === 15 && (cardNumber.substring(0,2) === "34" || cardNumber.substring(0,2) === "37")) {
-  	return "American Express";
-  } else if (cardNumber.length === 16) {
-  	if (cardNumber.substring(0,1) === "4") {
+  		return "American Express";
+  } else if (cardNumber.length === 16 && (cardNumber.substring(0,2) === "51" || cardNumber.substring(0,2) === "52" || cardNumber.substring(0,2) === "53" || cardNumber.substring(0,2) === "54" || cardNumber.substring(0,2) === "55")) {
+ 		return "MasterCard";
+  } else if ((cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19 ) && cardNumber.substring(0,1) === "4") {
   		return "Visa";
-  	} else if (cardNumber.substring(0,1) === "5") {
-  		if (cardNumber.substring(0,1) === "1" || cardNumber.substring(0,1) === "2" || cardNumber.substring(0,1) === "3" || cardNumber.substring(0,1) === "4" || cardNumber.substring(0,1) === "5") {
-  			return "MasterCard";
-  		} else {
-  			return "Credit card network not supported";
-  		}
-  	} else {
+  } else if ((cardNumber.length === 16 || cardNumber.length === 19) && (cardNumber.substring(0,4) === 6011 || 644 <= cardNumber.substring(0,3) <= 649 || cardNumber.substring(0,2) === 65)) {
+  		return "Discover";
+  } else if (12 <= cardNumber.length <= 19 && (cardNumber.substring(0,4) === 5018 || cardNumber.substring(0,4) === 5020 || cardNumber.substring(0,4) === 5038 || cardNumber.substring(0,4) === 6304)) {
+  		return "Maestro";
+  } else {
   		return "Credit card network not supported";
-  	}
-  } else if ((cardNumber.length === 13 || cardNumber.length === 19) && cardNumber.substring(0,1) === "4") {
-  	return "Visa";
-  }
-  else {
-  	return "Credit card network not supported";
   }
 };
 
