@@ -22,9 +22,9 @@ var detectNetwork = function(cardNumber) {
  		return "MasterCard";
   } else if ((cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19 ) && cardNumber.substring(0,1) === "4") {
   		return "Visa";
-  } else if ((cardNumber.length === 16 || cardNumber.length === 19) && (cardNumber.substring(0,4) === 6011 || 644 <= cardNumber.substring(0,3) <= 649 || cardNumber.substring(0,2) === 65)) {
+  } else if ((cardNumber.length === 16 || cardNumber.length === 19) && (cardNumber.substring(0,4) === "6011" || cardNumber.substring(0,3) === "644" || cardNumber.substring(0,3) === "645" || cardNumber.substring(0,3) === "646" || cardNumber.substring(0,3) === "647" || cardNumber.substring(0,3) === "648" || cardNumber.substring(0,3) === "649" || cardNumber.substring(0,2) === "65")) {
   		return "Discover";
-  } else if (12 <= cardNumber.length <= 19 && (cardNumber.substring(0,4) === 5018 || cardNumber.substring(0,4) === 5020 || cardNumber.substring(0,4) === 5038 || cardNumber.substring(0,4) === 6304)) {
+  } else if (12 <= cardNumber.length <= 19 && (cardNumber.substring(0,4) === "5018" || cardNumber.substring(0,4) === "5020" || cardNumber.substring(0,4) === "5038" || cardNumber.substring(0,4) === "6304")) {
   		return "Maestro";
   } else {
   		return "Credit card network not supported";
