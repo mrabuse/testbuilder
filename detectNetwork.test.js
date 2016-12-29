@@ -98,6 +98,8 @@ describe('Visa', function() {
   });
 });
 
+
+
 describe('MasterCard', function() {
   // Chai lets you write more human-readable tests that throw helpful errors.
   // Expect syntax is one way to do this, but there are others. 
@@ -127,20 +129,82 @@ describe('MasterCard', function() {
   var should = chai.should();
   
   it('has a prefix of 54 and a length of 16', function() {
-    detectNetwork('5412345678901234').should.equal('MasterCard');
+    expect(detectNetwork('5412345678901234')).to.equal('MasterCard');
   });
 
   it('has a prefix of 55 and a length of 16', function() {
-    detectNetwork('5512345678901234').should.equal('MasterCard');
+    expect(detectNetwork('5512345678901234')).to.equal('MasterCard');
   });
 });
 
 describe('Discover', function() {
   // Tests without a function will be marked as "pending" and not run
   // Implement these tests (and others) and make them pass!
+  var expect = chai.expect;
 
-  it('has a prefix of 6011 and a length of 16');
-  it('has a prefix of 6011 and a length of 19');
+  it('has a prefix of 6011 and a length of 16', function () {
+    expect(detectNetwork('6011234567890123')).to.equal('Discover');
+  });
+
+  it('has a prefix of 6011 and a length of 19', function() {
+    expect(detectNetwork('6011123456789012345')).to.equal('Discover');
+  });
+
+  it('has a prefix of 644 and a length of 16', function() {
+    expect(detectNetwork('6441234567890123')).to.equal('Discover');
+  });
+
+  it('has a prefix of 644 and a length of 19', function() {
+    expect(detectNetwork('6441234567890123456')).to.equal('Discover');
+  });
+
+  it('has a prefix of 645 and a length of 16', function() {
+    expect(detectNetwork('6451234567890123')).to.equal('Discover');
+  });
+
+  it('has a prefix of 645 and a length of 19', function() {
+    expect(detectNetwork('6451234567890123456')).to.equal('Discover');
+  });
+
+  it('has a prefix of 646 and a length of 16', function() {
+    expect(detectNetwork('6461234567890123')).to.equal('Discover');
+  });
+
+  it('has a prefix of 646 and a length of 19', function() {
+    expect(detectNetwork('6461234567890123456')).to.equal('Discover');
+  });
+
+  it('has a prefix of 647 and a length of 16', function() {
+    expect(detectNetwork('6471234567890123')).to.equal('Discover');
+  });
+
+  it('has a prefix of 647 and a length of 19', function() {
+    expect(detectNetwork('6471234567890123456')).to.equal('Discover');
+  });
+
+  it('has a prefix of 648 and a length of 16', function() {
+    expect(detectNetwork('6481234567890123')).to.equal('Discover');
+  });
+
+  it('has a prefix of 648 and a length of 19', function() {
+    expect(detectNetwork('6481234567890123456')).to.equal('Discover');
+  });
+
+  it('has a prefix of 649 and a length of 16', function() {
+    expect(detectNetwork('6491234567890123')).to.equal('Discover');
+  });
+
+  it('has a prefix of 649 and a length of 19', function() {
+    expect(detectNetwork('6491234567890123456')).to.equal('Discover');
+  });
+
+  it('has a prefix of 65 and a length of 16', function() {
+    expect(detectNetwork('6512345678901234')).to.equal('Discover');
+  });
+
+  it('has a prefix of 65 and a length of 19', function() {
+    expect(detectNetwork('6512345678901234567')).to.equal('Discover');
+  });
 
 });
 
