@@ -209,7 +209,40 @@ describe('Discover', function() {
 });
 
 describe('Maestro', function() {
+
+  var expect = chai.expect;
   // Write full test coverage for the Maestro card
+  it('has a prefix of 5018 and a length of 12', function() {
+    expect(detectNetwork('501812345678')).to.equal('Maestro');
+  });
+
+  it('has a prefix of 5018 and a length of 13', function() {
+    expect(detectNetwork('5018123456789')).to.equal('Maestro');
+  });
+
+  it('has a prefix of 5018 and a length of 14', function() {
+    expect(detectNetwork('50181234567890')).to.equal('Maestro');
+  });
+
+  it('has a prefix of 5018 and a length of 15', function() {
+    expect(detectNetwork('501812345678901')).to.equal('Maestro');
+  });
+
+  it('has a prefix of 5018 and a length of 16', function() {
+    expect(detectNetwork('5018123456789012')).to.equal('Maestro');
+  });
+
+  it('has a prefix of 5018 and a length of 17', function() {
+    expect(detectNetwork('50181234567890123')).to.equal('Maestro');
+  });
+
+  it('has a prefix of 5018 and a length of 18', function() {
+    expect(detectNetwork('501812345678901234')).to.equal('Maestro');
+  });
+
+  it('has a prefix of 5018 and a length of 19', function() {
+    expect(detectNetwork('5018123456789012345')).to.equal('Maestro');
+  });
 });
 
 describe('should support China UnionPay')
